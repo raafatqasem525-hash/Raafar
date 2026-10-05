@@ -1,31 +1,203 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b12">
-<title>Raafat Wallpaper</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,Tahoma,sans-serif;
-}
+    <meta name="theme-color" content="#080b12">
 
-body{
-  background:#080b12;
-  color:white;
-  min-height:100vh;
-}
+    <title>Raafat Wallpaper</title>
 
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  padding:20px 16px;
-  background:rgba(8,11,18,.95);
-  backdrop-filter:blur(15px);
-  border-bottom:1
- 
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080b12;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 25px 15px;
+            text-align: center;
+            background: linear-gradient(135deg, #080b12, #151b2b);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #bfc5d2;
+            font-size: 16px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .buttons button {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            background: #087cf5;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background: #005dcc;
+        }
+
+        .wallpapers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 15px;
+        }
+
+        .wallpaper {
+            position: relative;
+            height: 230px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #151a24;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        .wallpaper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .wallpaper button {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            background: rgba(0,0,0,0.75);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #888;
+        }
+
+        @media (max-width: 600px) {
+            .wallpapers {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .wallpaper {
+                height: 210px;
+            }
+
+            header h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>📱 Raafat Wallpaper</h1>
+        <p>أجمل الخلفيات لهاتفك</p>
+    </header>
+
+    <div class="buttons">
+        <button onclick="showCategory('all')">الكل</button>
+        <button onclick="showCategory('cars')">🚗 سيارات</button>
+        <button onclick="showCategory('nature')">🌄 طبيعة</button>
+        <button onclick="showCategory('space')">🌌 فضاء</button>
+    </div>
+
+    <main class="wallpapers">
+
+        <div class="wallpaper" data-category="cars">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80">
+            <button onclick="downloadWallpaper(this)">⬇ تحميل الخلفية</button>
+        </div>
+
+        <div class="wallpaper" data-category="cars">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80">
+            <button onclick="downloadWallpaper(this)">⬇ تحميل الخلفية</button>
+        </div>
+
+        <div class="wallpaper" data-category="nature">
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80">
+            <button onclick="downloadWallpaper(this)">⬇ تحميل الخلفية</button>
+        </div>
+
+        <div class="wallpaper" data-category="nature">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80">
+            <button onclick="downloadWallpaper(this)">⬇ تحميل الخلفية</button>
+        </div>
+
+        <div class="wallpaper" data-category="space">
+            <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=800&q=80">
+            <button onclick="downloadWallpaper(this)">⬇ تحميل الخلفية</button>
+        </div>
+
+        <div class="wallpaper" data-category="space">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80">
+            <button onclick="downloadWallpaper(this)">⬇ تحميل الخلفية</button>
+        </div>
+
+    </main>
+
+    <footer>
+        © 2026 Raafat Wallpaper
+    </footer>
+
+    <script>
+        function showCategory(category) {
+            const wallpapers = document.querySelectorAll(".wallpaper");
+
+            wallpapers.forEach(function(item) {
+                if (category === "all" ||
+                    item.dataset.category === category) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        function downloadWallpaper(button) {
+            const image = button.parentElement.querySelector("img");
+
+            const link = document.createElement("a");
+            link.href = image.src;
+            link.download = "Raafat-Wallpaper.jpg";
+            link.target = "_blank";
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+  </html>
